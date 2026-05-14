@@ -35,7 +35,7 @@ on:
                     - name: Run tests
                       run: npm test
 
-        summery: 
+         summery: 
             runs-on: ubuntu-latest
             needs: [lint, test]
 
@@ -47,4 +47,9 @@ on:
                   run: 'echo "Lint results: ${{ needs.lint.result }}"'
 
                 - name: test results
+
                   run: 'echo "Test results: ${{ needs.test.result }}"'
+
+                  run: 'echo "Test results: ${{ needs.test.result }}"'
+
+                  25
