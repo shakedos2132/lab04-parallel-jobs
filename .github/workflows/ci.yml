@@ -1,56 +1,56 @@
-       on:
-         push:
+        on:
+          push:
 
-       jobs:
-          lint:
+        jobs:
+            lint:
                  runs-on: ubuntu-latest
 
                  steps: 
-                    - name: Checkout code
-                      uses: actions/checkout@v2
+                     - name: Checkout code
+                       uses: actions/checkout@v2
 
-                    - name: Setup Node.js
-                      uses: actions/setup-node@v4
-                      with:
-                        node-version: 20
+                     - name: Setup Node.js
+                       uses: actions/setup-node@v4
+                       with:
+                         node-version: 20
 
-                    - name: Install dependencies
-                      run: npm install
+                     - name: Install dependencies
+                       run: npm install
                     
-                    - name: Check lint
-                      run: npm run lint
+                     - name: Check lint
+                       run: npm run lint
                     
-          test: 
-               steps: 
-                    - name: Checkout code
-                      uses: actions/checkout@v2
+            test: 
+                runs-on: ubuntu-latest
+            
+                steps: 
+                     - name: Checkout code
+                       uses: actions/checkout@v2
 
-                    - name: Setup Node.js
-                      uses: actions/setup-node@v4
-                      with:
-                        node-veersion: 20
+                     - name: Setup Node.js
+                       uses: actions/setup-node@v4
+                       with:
+                         node-veersion: 20
 
-                    - name: Install dependencies
-                      run: npm install
+                     - name: Install dependencies
+                       run: npm install
                     
-                    - name: Run tests
-                      run: npm test
+                     - name: Run tests
+                       run: npm test
 
-         summery: 
-            runs-on: ubuntu-latest
-            needs: [lint, test]
+            summary: 
+                 runs-on: ubuntu-latest
+                 needs: [lint, test]
 
-            steps: 
-                - name: "Show summary"
-                  run: 'echo "Pipeline triggered by" ${{ github.actor }}"'
+                 steps: 
+                     - name: "Show summary"
+                       run: echo "Pipeline triggered by" ${{ github.actor }}"
 
-                - name: lint results
-                  run: 'echo "Lint results - ${{ needs.lint.result }}"'
+                     - name: lint results
+                       run: echo "Lint results - ${{ needs.lint.result }}"
 
-                - name: test results
+                     - name: test results
 
-                  run: 'echo "Test results - ${{ needs.test.result }}"'
-
-                  run: 'echo "Test results - ${{ needs.test.result }}"'
+                       run: echo "Test results - ${{ needs.test.result }}"
 
                   
