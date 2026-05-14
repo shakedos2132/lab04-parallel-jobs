@@ -44,12 +44,12 @@ on:
                   run: 'echo "Pipeline triggered by" ${{ github.actor }}"'
 
                 - name: lint results
-                  run: 'echo "Lint results: ${{ needs.lint.result }}"'
+                  run: 'echo "Lint results - ${{ needs.lint.result }}"'
 
                 - name: test results
 
-                  run: 'echo "Test results: ${{ needs.test.result }}"'
+                  run: 'echo "Test results - ${{ needs.test.result }}"'
 
-                  run: 'echo "Test results: ${{ needs.test.result }}"'
+                  run: 'echo "Test results - ${{ needs.test.result }}"'
 
-                  25
+                  
